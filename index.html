@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="script" src="script.js" defer>
     <title>PlayerBio</title>
 </head>
 
@@ -13,7 +12,9 @@
     <!-- Cabeçalho do site com o menu de navegação-->
     <header class="header">
         <h1>PlayerBio</h1>
-        <nav class="menu">
+        <button id="open-menu">&#9776;</button>
+        <nav class="menu" id="menu">
+            <button id="close-menu">&#10005;</button>
             <a href="index.html">Início</a>
             <a href="playerbio/player_bio.html">Biografia do Jogador</a>
             <a href="playercard/player_card.html">Cartão do Jogador</a>
@@ -25,19 +26,17 @@
         <!-- Seção de boas-vindas com uma introdução básica -->
         <section class="welcome-section">
             <h2>Giorgian Daniel De Arrascaeta Benedetti</h2>
-            <h3>"O Carrasco"</h3>
-            <!-- Imagem do jogador com responsividade-->
-            <picture>
-                <img src="mídias/DeArrascaeta image.jpeg" alt="Imagem de Giorgian De Arrascaeta" class="player-image">
-            </picture>
-        </section>
-        <aside class="sidebar">
-            <article>
-                <h2>"Que o mundo inteiro saiba o que é ser rubro-negro!"</h2>
+            <h3>"Que o mundo inteiro saiba o que é ser rubro-negro!"</h2>
                 <p>- De Arrascaeta</p>
-            </article>
-        </aside>
+                <!-- Imagem do jogador com responsividade-->
+                <picture id="player-image">
+                    <img src="" alt="Imagem de Giorgian De Arrascaeta" class="player-image">
+                </picture>
+        </section>
     </main>
+    <aside class="sidebar">
+
+    </aside>
     <!-- Rodapé do site -->
     <footer class="footer">
         <p>Desenvolvido por Adryan Queiroz.</p>
