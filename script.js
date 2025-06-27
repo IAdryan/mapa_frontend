@@ -6,8 +6,8 @@ openMenu.addeventListener('click', () => {
     setTimeout(() => {
         menu.style.opacity = '1'
         menu.style.right = '0'
-    }, 10);
-});
+    }, 10)
+})
 
 closeMenu.addEventListener('click', () => {
     menu.style.opacity = '0'
@@ -16,5 +16,5 @@ closeMenu.addEventListener('click', () => {
     setTimeout(() => {
         menu.removeAttribute('style')
         openMenu.removeAttribute('style')
-    }, 200);
-});
+    }, 200)
+})

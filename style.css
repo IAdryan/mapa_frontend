@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+
 * {
+    font-family: "Raleway", sans-serif;
+    color: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    background-image: url(mídias/Fundo\ do\ site.png);
+    background-size: cover;
     display: flex;
-    margin: 3px;
     flex-wrap: wrap;
     flex: 1 1 100%;
 }
@@ -17,45 +24,62 @@ body {
 .welcome-section,
 .sidebar,
 .footer {
-    background-color: rgb(168, 39, 39);
     display: flex;
-    margin: 3px;
+}
+
+.main,
+.sidebar {
+    border-radius: 5px;
+    margin: 2px;
 }
 
 .header {
+    border-bottom: 2px solid rgb(30, 30, 30);
     flex: 1 1 100%;
     height: 100px;
 }
 
 .header h1 {
     flex: 0 1 200px;
-    background-color: rgb(117, 33, 33);
+    font-family: "Lobster", sans-serif;
+    font-style: oblique;
+    font-weight: 100;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 20pt;
 }
 
-#open-menu,
-#close-menu {
+#openMenu,
+#closeMenu {
     border: none;
     background: none;
     font-size: 30px;
     font-weight: bold;
     padding: 0px 5px 0px 5px;
+    margin: 10px;
     cursor: pointer;
     display: none;
 }
 
 .menu {
     flex: 1 1 100%;
+    height: 100px;
     align-items: center;
     justify-content: flex-end;
 }
 
 .menu a {
+    background: none;
     margin: 3%;
     font-size: 20pt;
 }
 
 
 .main {
+    background-image: url(mídias/arrascaeta.jpg);
+    background-size: cover;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.288);
     flex: 20 1 500px;
     height: calc(100vh - 224px);
 }
@@ -64,23 +88,64 @@ body {
     flex: 1 1 100%;
 }
 
-#player-image {
-    flex: 1 1 100%;
-    align-items: center;
-    justify-content: flex-start;
-    display: flex;
+.welcome-section h2 {
+    font-family: "Bodoni Moda", serif;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20pt;
+    margin-left: 25px;
+    margin-bottom: auto;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.welcome-section h3 {
+    font-family: "Bodoni Moda", serif;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20pt;
+    margin-left: 325px;
+    margin-top: auto;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
 .sidebar {
     flex: 1 1 200px;
+    background-color: rgba(14, 14, 14, 0.779);
+}
+
+.sidebar h3 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 100;
+    font-size: 30pt;
+    margin: 10px;
+    text-align: center;
+}
+
+.sidebar p {
+    font-family: "Oswald", sans-serif;
+    font-weight: 100;
+    font-size: 10pt;
+    margin: 3px;
+    text-align: center;
 }
 
 .footer {
     flex: 1 1 100%;
-    height: 100px;
+    background-image: linear-gradient(to bottom, rgba(14, 14, 14, 0.779), rgba(0, 0, 0, 0.834));
+    border-top: 2px solid rgb(30, 30, 30);
+    margin-bottom: 0;
+    height: 124px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.footer p {
+    background: none;
+    font-size: 12pt;
+    margin: 5px;
 }
 
 a {
@@ -90,29 +155,33 @@ a {
 
 @media only screen and (max-width: 923px) {
     .main {
-        height: calc(100vh - 330px);
+        height: calc(124vh - 230px);
     }
 
     .sidebar {
         flex: 1 1 100vh;
         height: 100px;
     }
+
+    .footer {
+        height: 84px
+    }
 }
 
-@media screen and (max-width: 717px) {
+@media screen and (max-width: 1147px) {
 
-    #open-menu,
-    #close-menu {
+    #openMenu,
+    #closeMenu {
         display: block;
     }
 
-    #close-menu {
+    #closeMenu {
         position: fixed;
         right: 15px;
         top: 15px;
     }
 
-    #open-menu {
+    #openMenu {
         margin-left: auto;
     }
 
@@ -121,12 +190,17 @@ a {
         flex-direction: column;
         width: 100%;
         height: 100%;
-        background-color: rgba(168, 39, 39, 0.8);
         align-items: center;
         justify-content: center;
         margin: 0;
         display: none;
         opacity: 0;
-        transition: 0.3s;
+        transition: 1s;
+    }
+}
+
+@media screen and (max-width: 352px) {
+    .footer p {
+        font-size: 11pt;
     }
 }
