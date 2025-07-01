@@ -13,7 +13,7 @@
 
 /* Estilização do corpo do site com organização de cada elemento */
 body {
-    background-image: url(mídias/Fundo\ do\ site.png);
+    background-image: url(/mídias/Fundo\ do\ site.png);
     background-size: cover;
     display: flex;
     flex-wrap: wrap;
@@ -29,11 +29,17 @@ body {
     display: flex;
 }
 
-/* Arredondamento da borda e definição da margem do conteúdo principal e da sidebar */
+/* Arredondamento da borda */
+.header,
+.main,
+.sidebar,
+.footer {
+    border-radius: 3px;
+}
+
 .main,
 .sidebar {
-    border-radius: 5px;
-    margin: 2px;
+    margin: 1.5px;
 }
 
 /* Definição da altura e borda do cabeçalho */
@@ -49,23 +55,11 @@ body {
     font-family: "Lobster", sans-serif;
     font-size: clamp(16px, 4vw, 32px);
     font-style: oblique;
+    text-shadow: 2px 2px 4px rgba(58, 58, 58, 0.712);
     font-weight: 100;
     align-items: center;
     justify-content: center;
     display: flex;
-}
-
-/* Estilização dos botões de abrir e fechar do menu */
-#openMenu,
-#closeMenu {
-    border: none;
-    background: none;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 0px 5px 0px 5px;
-    margin: 10px;
-    cursor: pointer;
-    display: none;
 }
 
 /* Distribuição dos links do menu */
@@ -80,12 +74,13 @@ body {
 .menu a {
     background: none;
     margin: 3%;
-    font-size: clamp(14px, 3vw, 24px);
+    font-size: clamp(11px, 2.5vw, 24px);
+    white-space: nowrap;
 }
 
 /* Estilização do background do conteúdo principal e cálculo da altura do elemento */
 .main {
-    background-image: url(mídias/arrascaeta.jpg);
+    background-image: url(/mídias/arrascaeta.jpg);
     background-size: cover;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.288);
     flex: 20 1 500px;
@@ -141,7 +136,7 @@ a {
     color: inherit;
 }
 
-/* Responsividade da página ao chegar no tamanho de tela de 923px, deixando o conteúdo principal, sidebar e rodapé alinhados em coluna */
+/* Responsividade da página ao chegar no tamanho de tela de 923px */
 @media only screen and (max-width: 923px) {
     .main {
         height: calc(124vh - 230px);
@@ -155,40 +150,18 @@ a {
     }
 
     .footer {
-        height: 84px
+        height: 84px;
     }
-
-    /* Visibilade do menu e dos botões de abrir e fechar. Os links são escondidos para melhor interação em telas menores */
 }
 
-@media screen and (max-width: 1147px) {
-
-    #openMenu,
-    #closeMenu {
-        display: block;
-    }
-
-    #closeMenu {
-        position: fixed;
-        right: 15px;
-        top: 15px;
-    }
-
-    #openMenu {
-        margin-left: auto;
+/* Esconde a logo do site e deixa os links do menu de navegação alinhados ao meio */
+@media screen and (max-width: 885px) {
+    .header h1 {
+        display: none;
     }
 
     .menu {
-        position: fixed;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        align-items: center;
         justify-content: center;
-        margin: 0;
-        display: none;
-        opacity: 0;
-        transition: 1s;
     }
 }
 
@@ -197,8 +170,99 @@ a {
     .header {
         height: auto;
     }
+}
 
-    .sidebar {
-        margin-top: -1px;
+/* Aplicação do layout flexível e alinhamento dos elementos ao meio da página */
+.main-biografia,
+.biografia,
+.cards,
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dimensões flexíveis do conteúdo principal */
+.main-biografia {
+    flex: 20 1 500px;
+}
+
+/* Flexibilidade dos cards */
+.biografia {
+    flex: 1 1 100vh;
+}
+
+/* Estilização, tamanho e decorações no card */
+.cards {
+    background-color: rgb(110, 5, 5);
+    margin: 30px;
+    width: 600px;
+    height: 450px;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: rgba(70, 70, 70, 0.3) 0px 19px 38px, rgba(25, 25, 25, 0.22) 0px 15px 12px;
+}
+
+/* Alinhamento ao meio dos textos e definição da margem */
+.cards h2,
+.cards h3,
+.cards p {
+    text-align: center;
+    margin: 5px;
+}
+
+.cards h2 {
+    font-size: clamp(15px, 3vw, 20px);
+    font-weight: 550;
+}
+
+.cards p {
+    font-size: clamp(10px, 2vw, 15px);
+}
+
+.cards h3 {
+    font-size: clamp(13px, 2vw, 15px);
+    font-weight: 500;
+}
+
+/* Dimensionamento e decoração das sub-divisões do segundo card */
+div {
+    background-color: rgb(75, 5, 5);
+    border-radius: 5px;
+    width: 85%;
+    margin: 5px;
+    box-shadow: rgba(4, 9, 11, 0.12) 0px 2px 4px 0px, rgba(4, 9, 11, 0.32) 0px 2px 16px 0px;
+}
+
+div p {
+    font-size: clamp(6px, 1vw, 8px);
+}
+
+/* Espaçamento entre as informações de jogos, gols e assistências */
+.info {
+    gap: 5px;
+}
+
+/* Ao chegar na dimensão especificada, os cards são alinhados em coluna */
+@media screen and (max-width: 1330px) {
+    .biografia {
+        flex-direction: column;
+        ;
+    }
+}
+
+/* Diminui a largura e altura dos cards para melhor responsividade */
+@media screen and (max-width: 675px) {
+    .cards {
+        width: 450px;
+        height: 400px
+    }
+}
+
+/* Diminui a largura e altura dos cards para melhor responsividade */
+@media screen and (max-width: 568px) {
+    .cards {
+        width: 300px;
+        height: 400px
     }
 }
