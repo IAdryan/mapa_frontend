@@ -29,14 +29,6 @@ body {
     display: flex;
 }
 
-/* Arredondamento da borda */
-.header,
-.main,
-.sidebar,
-.footer {
-    border-radius: 3px;
-}
-
 .main,
 .sidebar {
     margin: 1.5px;
@@ -60,6 +52,20 @@ body {
     align-items: center;
     justify-content: center;
     display: flex;
+    /* Nome e duração da animação de desvaneio */
+    animation-name: aparecer;
+    animation-duration: 2s;
+}
+
+/* Animação de desvaneio na logo do site */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Distribuição dos links do menu */
@@ -72,10 +78,18 @@ body {
 
 /* Estilização dos links do menu */
 .menu a {
+    display: inline-block;
     background: none;
     margin: 3%;
     font-size: clamp(11px, 2.5vw, 24px);
     white-space: nowrap;
+    /* Tempo de transição da animação */
+    transition: transform 0.3s ease;
+}
+
+/* Animação de aumento dos links do menu ao passar o mouse por cima */
+.menu a:hover {
+    transform: scale(1.2);
 }
 
 /* Estilização do background do conteúdo principal e cálculo da altura do elemento */
@@ -85,20 +99,25 @@ body {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.288);
     flex: 20 1 500px;
     height: calc(100vh - 224px);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 /* Cor do background e posicionamento dos itens da sidebar */
 .sidebar {
     flex: 1 1 200px;
-    background-color: rgba(14, 14, 14, 0.779);
-    text-align: center;
+    background-color: rgba(14, 14, 14, 0.844);
     align-items: center;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .sidebar h3,
 .sidebar p {
     font-family: "Oswald", sans-serif;
     font-weight: 100;
+    text-align: center;
+    color: rgb(160, 5, 5);
 }
 
 .sidebar h3 {
@@ -114,7 +133,7 @@ body {
 /* Configurações do rodapé com background em degradê */
 .footer {
     flex: 1 1 100%;
-    background-image: linear-gradient(to bottom, rgba(14, 14, 14, 0.779), rgba(0, 0, 0, 0.834));
+    background-image: linear-gradient(to bottom, rgba(14, 14, 14, 0.844), rgb(0, 0, 0));
     border-top: 2px solid rgb(30, 30, 30);
     margin-bottom: 0;
     height: 124px;
@@ -200,7 +219,7 @@ a {
     height: 450px;
     border-radius: 10px;
     flex-direction: column;
-    box-shadow: rgba(70, 70, 70, 0.3) 0px 19px 38px, rgba(25, 25, 25, 0.22) 0px 15px 12px;
+    box-shadow: rgba(50, 70, 70, 0.222) 0px 19px 38px, rgba(25, 25, 25, 0.22) 0px 15px 12px;
 }
 
 /* Alinhamento ao meio dos textos e definição da margem */
@@ -217,7 +236,7 @@ a {
 }
 
 .cards p {
-    font-size: clamp(10px, 2vw, 15px);
+    font-size: clamp(10px, 2vw, 13px);
 }
 
 .cards h3 {
@@ -226,12 +245,12 @@ a {
 }
 
 /* Dimensionamento e decoração das sub-divisões do segundo card */
-div {
+.cards div {
     background-color: rgb(75, 5, 5);
     border-radius: 5px;
     width: 85%;
     margin: 5px;
-    box-shadow: rgba(4, 9, 11, 0.12) 0px 2px 4px 0px, rgba(4, 9, 11, 0.32) 0px 2px 16px 0px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 div p {
@@ -247,12 +266,15 @@ div p {
 @media screen and (max-width: 1330px) {
     .biografia {
         flex-direction: column;
-        ;
+    }
+
+    .cards {
+        width: 700px;
     }
 }
 
 /* Diminui a largura e altura dos cards para melhor responsividade */
-@media screen and (max-width: 675px) {
+@media screen and (max-width: 764px) {
     .cards {
         width: 450px;
         height: 400px
@@ -262,7 +284,92 @@ div p {
 /* Diminui a largura e altura dos cards para melhor responsividade */
 @media screen and (max-width: 568px) {
     .cards {
-        width: 300px;
+        width: 310px;
+        height: 400px;
+    }
+}
+
+.main-highlight {
+    flex: 20 1 500px;
+    margin: 2px;
+}
+
+.highlight,
+.cards-highlight,
+div a {
+    display: flex;
+    align-items: center;
+}
+
+.highlight,
+div a {
+    justify-content: center;
+}
+
+.highlight {
+    flex: 1 1 100vh;
+}
+
+.cards-highlight {
+    background-color: rgb(75, 5, 5);
+    margin: 30px;
+    width: 600px;
+    height: 500px;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: rgba(75, 5, 5, 0.490) 0px 19px 38px, rgba(25, 25, 25, 0.22) 0px 15px 12px;
+}
+
+#card-cruzeiro {
+    background-color: rgb(4, 54, 191);
+    box-shadow: rgba(4, 54, 191, 0.15) 0px 19px 38px, rgba(25, 25, 25, 0.22) 0px 15px 12px;
+}
+
+
+.cards-highlight iframe {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 60%;
+}
+
+div {
+    margin: 30px;
+}
+
+div img {
+    width: 70px;
+}
+
+div h2 {
+    font-size: clamp(20px, 3vw, 25px);
+    font-weight: 550;
+}
+
+@media screen and (max-width: 1330px) {
+    .highlight {
+        flex-direction: column;
+    }
+
+    .cards-highlight {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 764px) {
+    .cards-highlight {
+        width: 450px;
         height: 400px
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .cards-highlight {
+        width: 310px;
+        height: 300px;
+    }
+
+    .cards-highlight iframe {
+        height: 50%;
     }
 }
