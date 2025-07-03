@@ -310,6 +310,7 @@ div a {
     flex: 1 1 100vh;
 }
 
+/* Estilização e dimensionamento dos cards dos melhores momentos */
 .cards-highlight {
     background-color: rgb(75, 5, 5);
     margin: 30px;
@@ -320,12 +321,13 @@ div a {
     box-shadow: rgba(75, 5, 5, 0.490) 0px 19px 38px, rgba(25, 25, 25, 0.22) 0px 15px 12px;
 }
 
+/* Cor e sombra do primeiro card */
 #card-cruzeiro {
     background-color: rgb(4, 54, 191);
     box-shadow: rgba(4, 54, 191, 0.15) 0px 19px 38px, rgba(25, 25, 25, 0.22) 0px 15px 12px;
 }
 
-
+/* Dimensionamento e borda ao topo do vídeo */
 .cards-highlight iframe {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -342,11 +344,13 @@ div img {
 }
 
 div h2 {
-    font-size: clamp(20px, 3vw, 25px);
+    font-size: clamp(15px, 3vw, 25px);
     font-weight: 550;
 }
 
 @media screen and (max-width: 1330px) {
+
+    /* Alinha os cards em coluna */
     .highlight {
         flex-direction: column;
     }
@@ -369,7 +373,125 @@ div h2 {
         height: 300px;
     }
 
+    /* Diminui a altura dos cards */
     .cards-highlight iframe {
         height: 50%;
     }
+}
+
+.main-contact,
+.formulario,
+.links-contato {
+    display: flex;
+}
+
+.main-contact {
+    flex: 20 1 500px;
+    height: calc(100vh - 64px);
+}
+
+.formulario,
+.links-contato {
+    align-items: center;
+    justify-content: center;
+}
+
+/* Configurações da seção do formulário de contato */
+.formulario {
+    flex: 1 1 100vh;
+    margin: 10px;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+/* Definição do tamanho do fromulário */
+.formulario form {
+    width: 100%;
+    /* Tamanho máximo do formulário */
+    max-width: 30rem;
+}
+
+.formulario h2 {
+    font-size: clamp(20px, 3vw, 25px);
+    font-weight: 400;
+    margin: 20px;
+}
+
+.links-contato {
+    margin: 0;
+    /* Espaçamento entre os links */
+    gap: 15px;
+}
+
+.links-contato img {
+    width: 55px;
+}
+
+label,
+textarea,
+input,
+button {
+    display: block;
+}
+
+textarea,
+input,
+button {
+    width: 100%;
+    font: inherit;
+    padding: 1.25rem;
+    font-weight: 700;
+}
+
+input,
+textarea {
+    margin-bottom: 1rem;
+    background: rgb(26, 26, 26);
+    border: 0.125rem solid transparent;
+    border-radius: 1.125rem;
+    /* Transição da cor da borda */
+    transition: border-color 0.3s;
+    box-shadow: 0.3s;
+}
+
+/* Deixa a borda colorida ao passar o mouse por cima dos campos */
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
+    outline: none;
+    border-color: rgb(110, 5, 5);
+}
+
+label {
+    margin: 0.5rem;
+}
+
+textarea {
+    min-height: 10rem;
+    /* Aumenta a altura do textarea somente na vertical */
+    resize: vertical;
+}
+
+/* Estilização do botão de envio */
+button {
+    border: none;
+    border-radius: 99px;
+    background: rgb(110, 5, 5);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Opacidade do botão ao passar o mouse por cima */
+button:hover,
+button:focus {
+    outline: none;
+    background: rgba(110, 5, 5, 0.659);
+}
+
+/* Estilização e centralização das mensagens que aparecem após clicar no botão enviar */
+.success,
+.error {
+    color: rgb(255, 255, 255);
+    text-align: center;
 }
